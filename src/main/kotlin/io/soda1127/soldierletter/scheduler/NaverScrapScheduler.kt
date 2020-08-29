@@ -1,4 +1,4 @@
-package io.soda1127.soldierletter
+package io.soda1127.soldierletter.scheduler
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
@@ -9,23 +9,23 @@ import org.jsoup.nodes.Document
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
 
-@Component
+@Component("NaverNewsScheduler")
 class NaverNewsScheduler {
 
-    companion object : NamedKLogging("SnapShotScheduler") {
+    companion object : NamedKLogging("NaverNewsScheduler") {
         var NewsURL = "https://news.naver.com/main/list.nhn?mode=LSD&mid=sec&sid1="
     }
 
     var dataReceived = false
 
     val categories = hashMapOf(
-            "정치" to 100,
-            "경제" to 101,
-            "사회" to 102,
-            "생활문화" to 103,
-            "IT과학" to 105,
-            "연예" to 106,
-            "스포츠" to 107
+        "정치" to 100,
+        "경제" to 101,
+        "사회" to 102,
+        "생활문화" to 103,
+        "IT과학" to 105,
+        "연예" to 106,
+        "스포츠" to 107
     )
 
     @Scheduled(cron = "0 0 0 * * ?")
@@ -50,7 +50,7 @@ class NaverNewsScheduler {
         runScrap()
     }
 
-    @Scheduled(cron = "* 59 00 ? * *", zone = "Asia/Seoul")
+    @Scheduled(cron = "* 47 00 ? * *", zone = "Asia/Seoul")
     fun run() {
         logger.info { "로그 테스트" }
         runScrap()
@@ -90,7 +90,7 @@ ${sectionTextList.reduce { acc, s -> "$acc\n$s" }}
     }
 
 
-    // 105 articeBody
+    // 106 articeBody
     // 107 newsEndContents
     private fun parseContent(newLinkDocument: Document, value: Int): String {
         val findId = when (value) {

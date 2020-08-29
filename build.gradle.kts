@@ -30,6 +30,8 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     implementation("org.jsoup:jsoup:1.13.1")
     implementation(group="io.github.microutils", name="kotlin-logging", version="1.7.6")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+
 }
 
 tasks.withType<Test> {
