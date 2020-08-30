@@ -1,0 +1,3 @@
+spring:
+  pid:
+    file: springboot-app.pid
