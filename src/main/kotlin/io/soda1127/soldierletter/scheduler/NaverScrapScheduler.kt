@@ -36,30 +36,24 @@ class ScrapNewsAndSendScheduler {
         "스포츠" to 107
     )
 
-    @Scheduled(cron = "0 0 0 * * ?")
+    @Scheduled(cron = "0 0 0 * * ?", zone = "Asia/Seoul")
     fun runOn0() {
         dataReceived = false
     }
 
-    @Scheduled(cron = "* * 6 * * ?")
+    @Scheduled(cron = "* * 6 * * ?", zone = "Asia/Seoul")
     fun runOn6() {
         logger.info { "로그 테스트" }
         runScrap()
     }
 
-    @Scheduled(cron = "* * 9 * * ?")
+    @Scheduled(cron = "* * 9 * * ?", zone = "Asia/Seoul")
     fun runOn9() {
         dataReceived = false
     }
 
-    @Scheduled(cron = "* * 12 * * ?")
+    @Scheduled(cron = "* * 12 * * ?", zone = "Asia/Seoul")
     fun runOn12() {
-        logger.info { "로그 테스트" }
-        runScrap()
-    }
-
-    @Scheduled(cron = "* 01 19 ? * *", zone = "Asia/Seoul")
-    fun run() {
         logger.info { "로그 테스트" }
         runScrap()
     }
