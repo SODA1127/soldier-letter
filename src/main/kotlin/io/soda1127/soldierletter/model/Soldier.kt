@@ -83,9 +83,9 @@ internal enum class SoldierRelationship(val value: String) {
 internal data class Soldier(
     val missSoldierClassCdNm: SoldierClass, // 성분
     val grpCdNm: SoldierGroup, // 군종
-    val name: String, // 이름
+    val traineeNm: String, // 이름
     val birth: String, // 생년월일 (YYYYMMDD)
-    val enterDate: String, // 입열 날짜 (YYYYMMDD)
+    val regDate: String, // 입열 날짜 (YYYYMMDD)
     val soldierUnitCdNm: SoldierUnit, // 입영부대
-    val traineeMgrSeq: String? // 훈련병 식별 코드
+    val traineeMgrSeq: String? = null // 훈련병 식별 코드
 )

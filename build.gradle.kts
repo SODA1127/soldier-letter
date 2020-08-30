@@ -31,6 +31,9 @@ dependencies {
     implementation("org.jsoup:jsoup:1.13.1")
     implementation(group="io.github.microutils", name="kotlin-logging", version="1.7.6")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation(group= "org.apache.httpcomponents", name= "httpclient", version= "4.5.12")
+    implementation(group= "com.google.code.gson", name= "gson", version= "2.8.5")
+
 
 }
 

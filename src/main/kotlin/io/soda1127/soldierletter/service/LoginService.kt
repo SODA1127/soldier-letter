@@ -1,7 +1,6 @@
 package io.soda1127.soldierletter.service
 
 import io.soda1127.soldierletter.model.Cookie
-import io.soda1127.soldierletter.model.LoginRequest
 import io.soda1127.soldierletter.model.SessionResponse
 import io.soda1127.soldierletter.model.StaticValue.URL
 import org.springframework.beans.factory.annotation.Autowired
@@ -50,11 +49,8 @@ internal class LoginService {
         val iuid = cookies.find { it.contains("iuid=") }
         val token = cookies.find { it.contains("Token=") }
 
-        /*return {
-            iuid: iuid.slice(0, iuid.indexOf(';')),
-            token: token.slice(0, token.indexOf(';')),
-        };*/
         return Cookie(
+            cookieList = cookies,
             iuid = iuid?.substring(0, iuid.indexOf(";"))?.replace("iuid=", ""),
             token = token?.substring(0, token.indexOf(";"))?.replace("Token=", "")
         )
