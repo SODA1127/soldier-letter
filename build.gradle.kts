@@ -50,8 +50,8 @@ tasks {
         }
     }
 
-    withType<BootJar> {
-        archiveClassifier.set("boot")
+    bootJar {
+        mainClassName = "io.soda1127.soldierletter.SoldierLetterApplication"
     }
 
     withType<Jar> {
