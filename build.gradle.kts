@@ -15,6 +15,10 @@ repositories {
     mavenCentral()
 }
 
+bootJar {
+    launchScript()
+}
+
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-rest")
     implementation("org.springframework.boot:spring-boot-starter-web")
