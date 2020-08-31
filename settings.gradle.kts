@@ -1,3 +1,3 @@
 rootProject.name = "soldier-letter"
 
-org.gradle.daemon(true)
+org.gradle.daemon=(true)
