@@ -15,10 +15,6 @@ repositories {
     mavenCentral()
 }
 
-bootJar {
-    launchScript()
-}
-
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-rest")
     implementation("org.springframework.boot:spring-boot-starter-web")
@@ -41,13 +37,24 @@ dependencies {
 
 }
 
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
+tasks {
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "1.8"
+    withType<Test> {
+        useJUnitPlatform()
+    }
+
+    withType<KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+            jvmTarget = "1.8"
+        }
+    }
+
+    withType<BootJar> {
+        archiveClassifier.set("boot")
+    }
+
+    withType<Jar> {
+        enabled = true
     }
 }
