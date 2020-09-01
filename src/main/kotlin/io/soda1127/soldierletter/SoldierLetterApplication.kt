@@ -6,6 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.ApplicationPidFileWriter
 import org.springframework.boot.runApplication
 import org.springframework.scheduling.annotation.EnableScheduling
+import java.util.*
+import java.util.TimeZone.*
+import javax.annotation.PostConstruct
 
 @SpringBootApplication
 @EnableScheduling
@@ -17,4 +20,10 @@ fun main(args: Array<String>) {
     val app = SpringApplication(SoldierLetterApplication::class.java)
     app.addListeners(ApplicationPidFileWriter())   // pid 를 작성하는 역할을 하는 클래스 선언
     app.run(*args)
+
+    @PostConstruct
+    fun init() {
+        setDefault(getTimeZone("Asia/Seoul"))
+    }
+
 }

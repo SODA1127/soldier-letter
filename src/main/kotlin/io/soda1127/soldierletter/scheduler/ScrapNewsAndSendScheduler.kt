@@ -67,7 +67,6 @@ class ScrapNewsAndSendScheduler {
                     parseTitleContent(it.key, it.value, document)
                 }
                 val titleContent = titleContentList.reduce { acc, s -> "$acc</br>$s" }.trimIndent()
-                logger.info { titleContent }
                 runSend(titleContent)
             }
         }
@@ -88,8 +87,9 @@ class ScrapNewsAndSendScheduler {
                     )
                 )
                 val format = SimpleDateFormat("MM월 dd일")
-                val time = Calendar.getInstance()
-                val formatTime: String = format.format(time.time)
+                val calendar = Calendar.getInstance()
+                val formatTime: String = format.format(calendar.time)
+                logger.info { "$formatTime 최신 소식</br>$titleContent" }
                 val isSended = sendMessage("51사단 3중대 3소대 1생활관 148번 장우찬", "$formatTime 최신 소식</br>$titleContent")
                 logger.info {
                     if (isSended) "성공적으로 보내짐" else "성공적으로 못보냄"
