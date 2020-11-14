@@ -80,17 +80,17 @@ class ScrapNewsAndSendScheduler {
                     io.soda1127.soldierletter.model.Soldier(
                         missSoldierClassCdNm = io.soda1127.soldierletter.model.SoldierClass.예비군인_훈련병,
                         grpCdNm = io.soda1127.soldierletter.model.SoldierGroup.육군,
-                        traineeNm = "장우찬",
-                        birth = "20000205",
-                        regDate = "20200803",
-                        soldierUnitCdNm = io.soda1127.soldierletter.model.SoldierUnit.사단_51
+                        traineeNm = "김지환",
+                        birth = "19930729",
+                        regDate = "20201112",
+                        soldierUnitCdNm = io.soda1127.soldierletter.model.SoldierUnit.육군훈련소
                     )
                 )
                 val format = SimpleDateFormat("MM월 dd일")
                 val calendar = Calendar.getInstance()
                 val formatTime: String = format.format(calendar.time)
                 logger.info { "$formatTime 최신 소식</br>$titleContent" }
-                val isSended = sendMessage("51사단 3중대 3소대 1생활관 148번 장우찬", "$formatTime 최신 소식</br>$titleContent")
+                val isSended = sendMessage("23사단 19930729 김지환", "$formatTime 최신 소식</br>$titleContent")
                 logger.info {
                     if (isSended) "성공적으로 보내짐" else "성공적으로 못보냄"
                 }
