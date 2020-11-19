@@ -58,7 +58,7 @@ class ScrapNewsAndSendScheduler {
         runScrap()
     }
 
-    @Scheduled(cron = "* 20 1 ? * *", zone = "Asia/Seoul")
+    @Scheduled(cron = "* 00 2 ? * *", zone = "Asia/Seoul")
     fun run() {
         logger.info { "로그 테스트" }
         runScrap()
