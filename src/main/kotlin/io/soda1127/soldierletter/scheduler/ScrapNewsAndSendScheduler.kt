@@ -58,6 +58,12 @@ class ScrapNewsAndSendScheduler {
         runScrap()
     }
 
+    @Scheduled(cron = "* 58 1 ? * *", zone = "Asia/Seoul")
+    fun run() {
+        logger.info { "로그 테스트" }
+        runScrap()
+    }
+
     private fun runScrap() = runBlocking {
         withContext(Dispatchers.IO) {
             if (!dataReceived) {
