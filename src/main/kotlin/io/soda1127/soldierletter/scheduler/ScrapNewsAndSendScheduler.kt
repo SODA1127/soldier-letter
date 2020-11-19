@@ -90,7 +90,7 @@ class ScrapNewsAndSendScheduler {
                 val calendar = Calendar.getInstance()
                 val formatTime: String = format.format(calendar.time)
                 logger.info { "$formatTime 최신 소식</br>$titleContent" }
-                val isSended = sendMessage("23사단 19930729 김지환", "$formatTime 최신 소식</br>$titleContent")
+                val isSended = sendMessage("23연대 1중대 149번 김지환", "$formatTime 최신 소식</br>$titleContent")
                 logger.info {
                     if (isSended) "성공적으로 보내짐" else "성공적으로 못보냄"
                 }
