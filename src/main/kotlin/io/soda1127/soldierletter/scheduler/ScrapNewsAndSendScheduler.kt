@@ -38,6 +38,12 @@ class ScrapNewsAndSendScheduler {
 
     @Scheduled(cron = "0 0 0 * * ?", zone = "Asia/Seoul")
     fun runOn0() {
+        logger.info { "로그 테스트" }
+        runScrap()
+    }
+
+    @Scheduled(cron = "* * 3 * * ?", zone = "Asia/Seoul")
+    fun runOn3() {
         dataReceived = false
     }
 
@@ -56,6 +62,22 @@ class ScrapNewsAndSendScheduler {
     fun runOn12() {
         logger.info { "로그 테스트" }
         runScrap()
+    }
+
+    @Scheduled(cron = "* * 15 * * ?", zone = "Asia/Seoul")
+    fun runOn15() {
+        dataReceived = false
+    }
+
+    @Scheduled(cron = "* * 18 * * ?", zone = "Asia/Seoul")
+    fun runOn18() {
+        logger.info { "로그 테스트" }
+        runScrap()
+    }
+
+    @Scheduled(cron = "* * 21 * * ?", zone = "Asia/Seoul")
+    fun runOn21() {
+        dataReceived = false
     }
 
     private fun runScrap() = runBlocking {
